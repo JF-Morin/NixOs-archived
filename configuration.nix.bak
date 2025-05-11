@@ -51,7 +51,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  # sound.enable = true;
+  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -84,7 +84,7 @@
       dunst
       stow
       zsh
-      pkgs.gnome-tweaks
+      gnome.gnome-tweaks
       firefox
       git
       nodejs_20
@@ -118,7 +118,6 @@
       bat
       lazygit
       nerdfonts
-      ghostty
     ];
   };
 
@@ -141,11 +140,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = 
+  	let
+  		unstable = import <nixos-unstable> { config = { allowUnfree = true; }; }; 
+	in with pkgs; [
 	  waybar
 	  neovim
 	  zsh
-	  ghostty
+	  unstable.ghostty
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
