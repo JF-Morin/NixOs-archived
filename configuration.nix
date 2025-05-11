@@ -70,13 +70,19 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # Default shell
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jf = {
     isNormalUser = true;
     description = "JF";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
       dunst
+      stow
       zsh
       gnome.gnome-tweaks
       firefox
@@ -115,17 +121,17 @@
     ];
   };
 
-  users.users.caro = {
-    isNormalUser = true;
-    home = "/home/caro";
-    description = "Caro Bienvenu";
-    packages = with pkgs; [
-	brave
-	firefox
-	libreoffice
-	tailscale
-	];
-  };
+  #users.users.caro = {
+  #  isNormalUser = true;
+  #  home = "/home/caro";
+  #  description = "Caro Bienvenu";
+  #  packages = with pkgs; [
+  #      brave
+  #      firefox
+  #      libreoffice
+  #      tailscale
+  #      ];
+  #};
 
 
   # Allow unfree packages
@@ -134,11 +140,13 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
-  environment.systemPackages = let
-  	unstable = import <nixos-unstable> { config = { allowUnfree = true; }; }; 
+  environment.systemPackages = 
+  	let
+  		unstable = import <nixos-unstable> { config = { allowUnfree = true; }; }; 
 	in with pkgs; [
 	  waybar
 	  neovim
+	  zsh
 	  unstable.ghostty
   ];
   # Some programs need SUID wrappers, can be configured further or are
