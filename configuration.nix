@@ -129,6 +129,8 @@
       bat
       lazygit
       nerdfonts
+      ghostty
+      freecad-wayland
     ];
   };
 
