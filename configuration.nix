@@ -80,6 +80,48 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+
+  # GPU Driver and OpenGL
+ # hardware.opengl = {
+ #         enable = true;
+ #         driSupport = true;
+ #         driSupport32Bit = true;
+ # };
+  hardware.graphics = {
+ 	 enable = true;
+  };	
+
+  services.xserver.videoDrivers = ["nvidia"];
+
+  hardware.nvidia = {
+  	modesetting.enable = true;
+
+	powerManagement.enable = true;
+
+	powerManagement.finegrained = false;
+
+	open = false;
+
+	nvidiaSettings = true;
+
+	package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+  };
+
+
+
+  #hardware.nvidia.modesetting.enable = true;
+
+  programs.steam.enable = true;
+  #programs.steam.gamescopeSession = true;
+
+  programs.gamemode.enable = true;
+
+ # environment.systemVariables = {
+ # 	STEAM_EXTRA_COMPAT_TOOLS_PATHS = 
+ #       	"/home/user/.steam/root/compatibilitytools.d";
+ # };
+
   
     # Default shell
   programs.zsh.enable = true;
@@ -131,6 +173,12 @@
       nerdfonts
       ghostty
       freecad-wayland
+      obsidian
+      protonplus
+      winetricks
+      protontricks
+      wineWowPackages.waylandFull
+      yad
     ];
   };
 
