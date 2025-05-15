@@ -174,11 +174,6 @@
       ghostty
       freecad-wayland
       obsidian
-      protonplus
-      winetricks
-      protontricks
-      wineWowPackages.waylandFull
-      yad
     ];
   };
 
