@@ -47,14 +47,15 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  #services.xserver.displayManager.gdm.enable = true;
+  #services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.sddm.wayland.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
+  #services.xserver.xkb = {
+  #  layout = "us";
+  #  variant = "";
+  #};
   
     # Flatpak
   services.flatpak.enable = true;
@@ -71,7 +72,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -82,11 +83,11 @@
   # services.xserver.libinput.enable = true;
 
   # GPU Driver and OpenGL
- # hardware.opengl = {
- #         enable = true;
+  hardware.opengl = {
+          enable = true;
  #         driSupport = true;
  #         driSupport32Bit = true;
- # };
+  };
   hardware.graphics = {
  	 enable = true;
   };	
@@ -134,46 +135,67 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-      dunst
-      stow
-      zsh
-      gnome-tweaks
-      firefox
-      git
-      nodejs_20
-      python312
-      vscodium
+
+      # Applications
+      freecad-wayland
+      obsidian
       vlc
-      unzip
-      gzip
       gimp-with-plugins
       inkscape-with-extensions
       brave
       discord
       spotify
       steam
-      docker
       libreoffice
-      tailscale
-      rustc
-      cargo
-      go
-      neovim
       kicad
-      tmux
-      zig
       whatsapp-for-linux
-      gh
-      flatpak
-      fzf
-      yazi
+      firefox
+
+      # Terminal
+      yazi # terminal file eplorer
       oh-my-posh
-      bat
       lazygit
       nerdfonts
       ghostty
-      freecad-wayland
-      obsidian
+      tmux
+      bat # like cat, but better
+      stow #link manager
+      zsh #shell
+
+      # Development
+      neovim
+      vscodium
+      docker
+      gh #github
+      python312
+      rustc
+      cargo
+      go
+      zig
+      git
+      nodejs_20
+
+      # NetWorking
+      tailscale
+
+      # Tools
+      flatpak
+      fzf #fuzzy finder
+      unzip
+      gzip
+      dunst #notification daemon
+      caffeine # prevent sleep mode
+      ffmpeg
+
+      # Hyprland
+      rofi-wayland # app launcher
+      waybar # status bar
+      wl-clipboard
+      hyprlock
+      dolphin # test vs thunar
+      #thunar # test vs dolphin
+      #xfce.tumbler # for thunar thumbnails
+      #ffmpegthumbnailer #video thumbnail
     ];
   };
 
@@ -188,9 +210,13 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+  dunst
+  libnotify
   neovim
   zsh
   ghostty
+  rofi-wayland
+  kitty
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -202,7 +228,19 @@
   # };
   
   # Hyprland
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+      enable = true;
+      withUWSM = true;
+      xwayland.enable = true;
+  };
+
+  environment.sessionVariables = {
+      WLR_NO_HARDWARE_CURSORS = "1";
+      NIXOS_OZONE_WL = "1";
+  };
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   # List services that you want to enable:
 
