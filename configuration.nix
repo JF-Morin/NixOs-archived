@@ -44,12 +44,12 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  #services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
   #services.xserver.displayManager.gdm.enable = true;
   #services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.displayManager.sddm.wayland.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
 
   # Configure keymap in X11
   #services.xserver.xkb = {
@@ -83,14 +83,11 @@
   # services.xserver.libinput.enable = true;
 
   # GPU Driver and OpenGL
-  hardware.opengl = {
+  hardware.graphics = {
           enable = true;
  #         driSupport = true;
  #         driSupport32Bit = true;
   };
-  hardware.graphics = {
- 	 enable = true;
-  };	
 
   services.xserver.videoDrivers = ["nvidia"];
 
@@ -184,7 +181,7 @@
       unzip
       gzip
       dunst #notification daemon
-      caffeine # prevent sleep mode
+      #caffeine # prevent sleep mode
       ffmpeg
 
       # Hyprland
