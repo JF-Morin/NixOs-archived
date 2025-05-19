@@ -44,7 +44,7 @@
   };
 
   # Enable the X11 windowing system.
-  #services.xserver.enable = true;
+  services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
   #services.xserver.displayManager.gdm.enable = true;
@@ -153,6 +153,7 @@
       oh-my-posh
       lazygit
       nerdfonts
+      font-awesome
       ghostty
       tmux
       bat # like cat, but better
@@ -183,13 +184,14 @@
       dunst #notification daemon
       #caffeine # prevent sleep mode
       ffmpeg
+      htop
 
       # Hyprland
       rofi-wayland # app launcher
       waybar # status bar
       wl-clipboard
       hyprlock
-      dolphin # test vs thunar
+      nautilus # test vs thunar
       #thunar # test vs dolphin
       #xfce.tumbler # for thunar thumbnails
       #ffmpegthumbnailer #video thumbnail
@@ -230,6 +232,11 @@
       withUWSM = true;
       xwayland.enable = true;
   };
+
+  fonts.packages = with pkgs; [
+    nerdfonts
+    font-awesome
+];
 
   environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
