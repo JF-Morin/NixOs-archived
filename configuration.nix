@@ -174,7 +174,6 @@
       fzf #fuzzy finder
       unzip
       gzip
-      dunst #notification daemon
       #caffeine # prevent sleep mode
       ffmpeg
       htop
@@ -184,7 +183,9 @@
       waybar # status bar
       wl-clipboard
       hyprlock
+      hyprshot
       nautilus # test vs thunar
+      #dunst #notification daemon
       #thunar # test vs dolphin
       #xfce.tumbler # for thunar thumbnails
       #ffmpegthumbnailer #video thumbnail
@@ -230,6 +231,16 @@
     nerdfonts
     font-awesome
 ];
+
+  services.swaync = {
+      enable = true;
+      settings = {
+          positionX = "right";
+          positionY = "top";
+          layer = "overlay";
+      };
+  };
+
 
   environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
