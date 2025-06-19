@@ -146,7 +146,7 @@
                 yazi # Terminal file eplorer
                 oh-my-posh # Command line graphic
                 lazygit # Git TUI
-                nerdfonts   # Fonts
+                #nerdfonts   # Fonts
                 font-awesome # Fonts
                 ghostty # Terminal
                 tmux # Terminal multiplexer
@@ -182,7 +182,8 @@
                 htop
 
 # Hyprland
-                ags # Widgets and bar
+                #ags # Widgets and bar
+                #astal.io
                 dunst # Notifications
                 libnotify # for notifications
                 rofi-wayland # app launcher
@@ -232,9 +233,9 @@
     services.hypridle.enable = true;
 
     fonts.packages = with pkgs; [
-        nerdfonts
-            font-awesome
-    ];
+        nerd-fonts.jetbrains-mono
+        font-awesome
+    ]; 
 
 
     environment.sessionVariables = {
@@ -266,6 +267,6 @@
 # this value at the release version of the first install of this system.
 # Before changing this value read the documentation for this option
 # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-    system.stateVersion = "24.11"; # Did you read the comment?
+    system.stateVersion = "25.05"; # Did you read the comment?
 
 }
