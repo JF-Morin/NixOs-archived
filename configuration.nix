@@ -58,7 +58,7 @@
     services.printing.enable = true;
 
 # Enable sound with pipewire.
-    hardware.pulseaudio.enable = false;
+    services.pulseaudio.enable = false;
     security.rtkit.enable = true;
     services.pipewire = {
         enable = true;
@@ -153,7 +153,8 @@
                 bat # Like cat, but better
                 stow # Link manager
                 zsh # Shell
-                neofetch # System info
+                fastfetch # System info
+                zoxide # Smart 'cd' replacement
 
 # Development
                 neovim
@@ -171,15 +172,15 @@
 
 # Networking
                 tailscale # VPN service
+                nmap # Network mapping
 
 # Tools
                 flatpak
                 fzf #fuzzy finder
                 unzip
                 gzip
-#caffeine # prevent sleep mode
-                ffmpeg
-                htop
+                ffmpeg # Image/Video compression, convertion, etc
+                htop # Interactive process viewer
 
 # Hyprland
                 #ags # Widgets and bar
