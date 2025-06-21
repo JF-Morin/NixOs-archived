@@ -83,6 +83,7 @@
 #         driSupport32Bit = true;
     };
 
+
     services.xserver.videoDrivers = ["nvidia"];
 
     hardware.nvidia = {
@@ -114,6 +115,8 @@
 #       	"/home/user/.steam/root/compatibilitytools.d";
 # };
 
+# Space mouse
+hardware.spacenavd.enable = true;
 
 # Default shell
     programs.zsh.enable = true;
@@ -181,6 +184,23 @@
                 gzip
                 ffmpeg # Image/Video compression, convertion, etc
                 htop # Interactive process viewer
+                wget
+
+# Tools for Fusion360
+                wine-wayland
+                winetricks
+                yad
+                mokutil
+                lsb-release
+                p7zip
+                cabextract
+                samba
+                bc
+                xorg.xrandr
+                spacenavd
+                mesa
+                virtualglLib
+                gettext
 
 # Hyprland
                 #ags # Widgets and bar
@@ -224,6 +244,7 @@
 #   enableSSHSupport = true;
 # };
 
+services.samba.enable = true;
 # Hyprland
     programs.hyprland = {
         enable = true;
