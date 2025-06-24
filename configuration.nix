@@ -15,14 +15,16 @@
     boot.loader.efi.canTouchEfiVariables = true;
 
     networking.hostName = "JF_Desktop"; # Define your hostname.
-# networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+# Enable networking
+        networking.networkmanager.enable = true;
 
 # Configure network proxy if necessary
 # networking.proxy.default = "http://user:password@proxy:port/";
 # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-# Enable networking
-        networking.networkmanager.enable = true;
+# Enable flakes
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 # Set your time zone.
 #time.timeZone = "Europe/Paris";
@@ -158,6 +160,7 @@ hardware.spacenavd.enable = true;
                 zsh # Shell
                 fastfetch # System info
                 zoxide # Smart 'cd' replacement
+                tree # Depth directory listing
 
 # Development
                 neovim
