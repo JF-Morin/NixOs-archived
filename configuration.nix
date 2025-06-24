@@ -185,20 +185,24 @@ hardware.spacenavd.enable = true;
                 ffmpeg # Image/Video compression, convertion, etc
                 htop # Interactive process viewer
                 wget
+                curl
 
 # Tools for Fusion360
                 wine-wayland
                 winetricks
-                yad
-                mokutil
+                coreutils
+                gawk
                 lsb-release
-                p7zip
                 cabextract
-                samba
-                bc
-                xorg.xrandr
-                spacenavd
                 mesa
+                mesa-demos
+                polkit
+                p7zip
+                samba
+                spacenavd
+                bc
+                mokutil
+                xorg.xrandr
                 virtualglLib
                 gettext
 
