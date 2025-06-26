@@ -187,6 +187,9 @@
                 wget
                 curl
 
+# Hardware tools
+                brightnessctl
+
 # Hyprland
                 #ags # Widgets and bar
                 #astal.io
