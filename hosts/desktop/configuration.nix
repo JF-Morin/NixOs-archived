@@ -26,6 +26,7 @@
 # Enable flakes
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+
 # Set your time zone.
 #time.timeZone = "Europe/Paris";
     services.automatic-timezoned.enable = true;
@@ -240,7 +241,7 @@ hardware.spacenavd.enable = true;
             zsh
             ghostty
             rofi-wayland
-            kitty
+            home-manager
     ];
 
 # Some programs need SUID wrappers, can be configured further or are
