@@ -221,6 +221,7 @@ hardware.spacenavd.enable = true;
                 hyprlock # Lock screen
                 hyprshot # Screenshots
                 nautilus # File explorer => test vs thunar
+                wlogout
 #thunar # test vs dolphin
 #xfce.tumbler # for thunar thumbnails
 #ffmpegthumbnailer #video thumbnail
